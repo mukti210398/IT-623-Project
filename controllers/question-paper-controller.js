@@ -91,7 +91,7 @@ exports.generateQuestionPaper = (req, res, next) => {
         return res.redirect("/getGenerateQuestionpaper/" + classId);
     }
 
-    Question.find({ class: classId, topic: { $in: topics }, type: { $in: types } })
+    Question.find({ class: classId, topic: { $in: topics }, type: { $in: types }, public:false })
         .then(mQuestions => {
 
             if (!mQuestions) {
